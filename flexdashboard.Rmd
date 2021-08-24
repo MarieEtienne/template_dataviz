@@ -1,5 +1,5 @@
 ---
-title: "Quick illustration of flexdashboard"
+title: "Un joli titre pour le dashboard"
 author: "Marie-Pierre Etienne"
 output: 
   flexdashboard::flex_dashboard:
@@ -31,9 +31,7 @@ color:black!important;
 library(flexdashboard)
 library(tidyverse)
 library(ggplot2)
-library(sf)
 library(plotly)
-source(paste0(params$setup_path, "knitr_setup.R"))
 ```
 
 Column {data-width=650}
@@ -48,12 +46,22 @@ Column {data-width=650}
 
 The [flexdashboard website](https://rmarkdown.rstudio.com/flexdashboard/index.html) provides multiple advanced examples.
 
-### Some static maps
+### Some static graph
 
-```{r info_shp_dpt, child='childs/map_child.Rmd', eval = TRUE,  message = FALSE, warning=FALSE}
+```{r data, eval = TRUE, echo = FALSE, results='hide', message = FALSE, warning=FALSE}
+n <- 100
+dta <- tibble(size = round(rnorm(n, mean = 0, sd =10),2), 
+           color = sample(x= c('Blue', 'Yellow'), size = n, replace = TRUE))
+
 ```
 
 
+```{r graph_static,  echo = FALSE,  message = FALSE, warning=FALSE}
+p1 <- dta %>% ggplot() +
+  aes(x=color, y = size) +
+  geom_boxplot(aes(fill= color))
+p1
+```
 
 Column {.tabset .tabset-fade}
 -----------------------------------------------------------------------
