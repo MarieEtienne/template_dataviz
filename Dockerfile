@@ -8,6 +8,6 @@ RUN R -e "install.packages(c('GGally', 'maps', 'geosphere', 'mapproj', 'sp', 'sn
 RUN R -e "install.packages(c('cowplot', 'grid', 'gridExtra', 'openxlsx', 'stringi'))"
 RUN R -e "install.packages(c('reshape2', 'rnaturalearth', 'lcowplot'))"
 RUN R -e "install.packages(c('tmap', 'lubridate', 'terra', 'spData', 'spDataLarge', 'rnaturalearthdata'))"
-RUN R -e "install.packages(c('highcharter', 'mapproj', 'gtable', 'cowplot', 'ggpubr',))"
+RUN R -e "install.packages(c('highcharter', 'mapproj', 'gtable', 'cowplot', 'ggpubr'))"
 
 
